@@ -15,9 +15,6 @@ class Home extends Component {
         <Link to={'/flex'}>Flex</Link>
         <Link to={'/reacttransitiongroup'}>Transition</Link>
         <Link to={'/apollo'}>Apollo</Link>
-        <br/>
-        <Link to={'/todo2'}>Todo App</Link>
-
       </HomeWrapper>
     );
   }
