@@ -59,20 +59,6 @@ if (process.env.HOST) {
   console.log();
 }
 
-// MongoDB
-const mongoose = require('mongoose');
-const { mongoURI: db } = process.env;
-mongoose
-  .connect(
-    db,
-    {
-      useCreateIndex: true,
-      useNewUrlParser: true
-    }
-  )
-  .then(() => console.log("MongoDB connected."))
-  .catch(err => console.log(err));
-
 // We require that you explictly set browsers and do not fall back to
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
