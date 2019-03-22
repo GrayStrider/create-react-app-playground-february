@@ -1,4 +1,5 @@
 import {
+  ADD_DATA,
   ADD_TO_SELECTED,
   ADD_TODO,
   CHANGE_SELECTED,
@@ -35,6 +36,15 @@ export function setSelected(payload, modifier) {
     modifier,
   };
 }
+
+export function addData(payload) {
+  return {
+    type: ADD_DATA,
+    payload,
+  };
+}
+
+
 
 
 
