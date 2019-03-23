@@ -35,7 +35,7 @@ app.use("/api", router);
 router.get("/getData", (req, res) => {
   const name = req.query.name
   const params = req.params
-  User.find((err, data) => {
+  User.find({name: name}, 'name email age', (err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data, name: name });
   });
