@@ -33,9 +33,11 @@ app.use("/api", router);
 // this is our get method
 // this method fetches all available data in our database
 router.get("/getData", (req, res) => {
+  const name = req.query.name
+  const params = req.params
   User.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
+    return res.json({ success: true, data: data, name: name });
   });
 });
 
