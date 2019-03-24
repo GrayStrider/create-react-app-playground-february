@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
-const NewsSchema = new mongoose.Schema({
+const NewsSchema = Schema({
   title: String,
   teaser: String,
   body: String,
@@ -15,6 +16,5 @@ const NewsSchema = new mongoose.Schema({
   }
 });
 
-mongoose.model('News', NewsSchema);
 
-module.exports = mongoose.model('News');
+export default mongoose.model("News", NewsSchema)

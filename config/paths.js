@@ -1,7 +1,7 @@
-'use strict';
 
-const path = require('path');
-const fs = require('fs');
+
+import path from 'path'
+import fs from 'fs'
 const url = require('url');
 
 // Make sure any symlinks in the project folder are resolved:

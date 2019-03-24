@@ -1,15 +1,12 @@
-const User = require("./models/User")
-
-const mongoose = require("mongoose");
-const express = require("express");
+import User from 'models/User'
+import mongoose from 'mongoose'
+import express from 'express'
+import cors from 'cors';
 require("dotenv").config();
 
 const API_PORT = 3001;
 const app = express();
 const router = express.Router();
-
-const cors = require('cors');
-
 // this is our MongoDB database
 const { mongoURI: db } = process.env;
 
@@ -33,8 +30,7 @@ app.use("/api", router);
 // this is our get method
 // this method fetches all available data in our database
 router.get("/getData", (req, res) => {
-  const name = req.query.name
-  const params = req.params
+  const name = req.query.name;
   User.find({name: name}, 'name email age', (err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data, name: name });
