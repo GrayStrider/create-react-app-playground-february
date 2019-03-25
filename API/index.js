@@ -28,13 +28,21 @@ app.use("/api", router);
 
 // this is our get method
 // this method fetches all available data in our database
+//================================================================================
+// find by name
 router.get("/getData", (req, res) => {
   const name = req.query.name;
-  User.find({name: name}, 'name email age', (err, data) => {
+  User.find(name ?
+    {name: name} // if specified
+    : null, // return all if not specified
+    'name email age', // fields to return
+    (err, data) => {
     if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data, name: name });
+    return res.json({ success: true, data: data });
   });
 });
+
+//================================================================================
 
 // this is our update method
 // this method overwrites existing data in our database
