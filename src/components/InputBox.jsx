@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import DefaultWrapper from './DefaultWrapper';
+import DefaultWrapper from './Helpers/DefaultWrapper';
 import theme from '../utils/themes/default';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/todo';

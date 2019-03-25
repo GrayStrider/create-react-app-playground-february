@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import DefaultWrapper from './DefaultWrapper';
+import DefaultWrapper from './Helpers/DefaultWrapper';
 
 class TaskDetails extends Component {
   render() {

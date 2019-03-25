@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import InputBox from '../InputBox';
-import DefaultWrapper from '../DefaultWrapper';
+import DefaultWrapper from '../Helpers/DefaultWrapper';
 import theme from '../../utils/themes/default';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Task from '../Task';
 import TaskDetails from '../TaskDetails';
+import ApolloPlayground from '../ApolloPlayground';
 
 const spacing = theme.spacing;
 const loremIpsum = require('lorem-ipsum');
@@ -53,6 +54,7 @@ class Todo extends Component {
 
         <ColumnRight>
           <TaskDetails/>
+          <ApolloPlayground/>
         </ColumnRight>
 
       </Wrapper>
