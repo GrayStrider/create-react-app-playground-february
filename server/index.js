@@ -1,9 +1,7 @@
-// Do this as the first thing so that any code reading it knows the right env.
 import chalk from 'chalk'
-// import chalk from 'react-dev-utils/chalk'
-// const chalk = require('react-dev-utils/chalk');
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
+import fs from 'fs';
 
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
@@ -16,9 +14,6 @@ process.on('unhandledRejection', err => {
 });
 // Ensure environment variables are read.
 require('../config/env');
-
-
-const fs = require('fs');
 const clearConsole = require('react-dev-utils/clearConsole');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const {

@@ -2,7 +2,7 @@ const News = require('../models/News')
 
 module.exports = {
   find: function(params, callback){
-    News.find(params,'_id title teaser', function(err, results){
+    News['find'](params,'_id title teaser', function(err, results){
       if(err){
         callback(err, null);
         return;
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   findById: function(id, callback){
-    News.findById(id, function(err, results){
+    News['findById'](id, function(err, results){
       if(err){
         callback(err, null);
         return;

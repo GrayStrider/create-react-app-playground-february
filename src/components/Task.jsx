@@ -4,33 +4,45 @@ import { connect } from 'react-redux';
 import { deleteTask, toggleDone, setSelected } from '../actions/todo';
 
 class Task extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleClick(e){
+    if (e.ctrlKey) {
+      this.props.setSelected(this.props.id, "Ctrl");
+    }
+    else if (e.shiftKey) {
+      this.props.setSelected(this.props.id, "Shift");
+    }
+    else this.props.setSelected(this.props.id, null)
+  }
+
+  handleDelete(e) {
+      e.stopPropagation();
+      this.props.deleteTask(this.props.id)
+      this.props.setSelected(this.props.id, "Delete"); // TODO trigger only if selected
+  }
   render() {
+    let isSelected = this.props.currentlySelected.includes(this.props.id);
     return (
       <Wrapper
-        id={this.props.id} className={this.props.currentlySelected.includes(this.props.id) ? 'selected' : null}
+        id={this.props.id}
+        className={isSelected ? 'selected' : null}
+        onClick={this.handleClick}>
 
-        onClick={(e) => {
-          if (e.ctrlKey) {
-            this.props.setSelected(this.props.id, "Ctrl");
-          }
-          else if (e.shiftKey) {
-            this.props.setSelected(this.props.id, "Shift");
-          }
-          else this.props.setSelected(this.props.id, null)
-        }
-        }>
-
-        <input type='checkbox' checked={this.props.completed}
+        <input type='checkbox'
+               checked={this.props.completed}
                onChange={() => this.props.toggleDone(this.props.id)}/>
 
         {this.props.content}
 
         <span className='delete_button'
-              onClick={(e) => {
-                e.stopPropagation(); // prevent task selection on deletion
-                this.props.deleteTask(this.props.id) // TODO trigger only if selected
-                this.props.setSelected(this.props.id, "Delete");
-              }} role='img' aria-label='Delete task'>❌</span>
+              onClick={this.handleDelete}
+              role='img'
+              aria-label='Delete task'>❌</span>
       </Wrapper>
     );
   }

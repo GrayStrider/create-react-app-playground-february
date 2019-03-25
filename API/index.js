@@ -1,13 +1,12 @@
-import User from 'models/User'
 import mongoose from 'mongoose'
 import express from 'express'
 import cors from 'cors';
+import User from './models/User';
 require("dotenv").config();
 
 const API_PORT = 3001;
 const app = express();
 const router = express.Router();
-// this is our MongoDB database
 const { mongoURI: db } = process.env;
 
 // connects our back end code with the database

@@ -29,6 +29,7 @@
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "6.1.2",
     "eslint-plugin-react": "7.12.4",
+    "esm": "^3.2.20",
     "express": "latest",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
@@ -84,10 +85,9 @@
     "webpack-cli": "^3.2.3"
   },
   "scripts": {
-    "start:dev": "cross-env NODE_ENV=development node server",
+    "start:dev": "cross-env NODE_ENV=development node -r esm server",
     "start": "cross-env NODE_ENV=production node server",
-    "API": "cross-env NODE_ENV=development node API",
-    "API2": "nodemon --exec babel-node API",
+    "API": "nodemon --exec node -r esm API",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js"
   },

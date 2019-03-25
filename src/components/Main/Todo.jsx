@@ -40,14 +40,8 @@ class Todo extends Component {
     }
   }
 
-  // getDataFromDb = () => {
-  //   fetch("http://localhost:3001/api/getData")
-  //     .then(data => data.json())
-  //     .then(res => this.props.addData(res.data));
-  // };
-
   getDataFromDb = () => {
-    fetch('http://localhost:3001/api/getData')
+    fetch('http://localhost:3001/api/getData?name=Ivan')
       .then(data => data.json())
       .then(res => {
         console.log(res.data)
