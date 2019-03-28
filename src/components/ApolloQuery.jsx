@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import DefaultWrapper from './Helpers/DefaultWrapper';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import { connect } from 'react-redux';
 
 const GET_USERS = gql`
     {
@@ -14,7 +15,7 @@ const GET_USERS = gql`
     }
 `;
 
-class ApolloPlayground extends Component {
+class ApolloQuery extends Component {
   users;
   render() {
     return (
@@ -51,4 +52,13 @@ const Wrapper = styled(DefaultWrapper)`
 
 `;
 
-export default ApolloPlayground;
+
+const mapStateToProps = state => ({
+  // count: state.count,
+});
+
+const mapDispatchToProps = dispatch => ({
+  // setCounter: (value) => dispatch(setCounter(value)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ApolloQuery);

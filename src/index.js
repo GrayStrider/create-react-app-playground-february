@@ -12,6 +12,16 @@ import ApolloClient from "apollo-boost";
 const store = configureStore();
 const client = new ApolloClient({
   uri: 'http://localhost:4000/',
+  clientState: {
+    defaults: {
+      testData: 'test'
+    },
+    typeDefs: `
+  type Query {
+    testData: String
+  }
+`
+  }
 });
 
 ReactDOM.render(

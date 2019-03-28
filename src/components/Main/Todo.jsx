@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Task from '../Task';
 import TaskDetails from '../TaskDetails';
-import ApolloPlayground from '../ApolloPlayground';
+import ApolloPlayground from '../ApolloQuery';
+import ApolloFetch from '../ApolloFetch';
 
 const spacing = theme.spacing;
 const loremIpsum = require('lorem-ipsum');
@@ -55,6 +56,7 @@ class Todo extends Component {
         <ColumnRight>
           <TaskDetails/>
           <ApolloPlayground/>
+          <ApolloFetch/>
         </ColumnRight>
 
       </Wrapper>

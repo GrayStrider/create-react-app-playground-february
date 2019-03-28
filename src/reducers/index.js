@@ -8,5 +8,5 @@ export default (history) => combineReducers({
   router: connectRouter(history),
   form: formReducer,
   tasks: tasks,
-  currentlySelected: currentlySelected
+  currentlySelected: currentlySelected,
 })
