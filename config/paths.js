@@ -1,7 +1,6 @@
 
-
-import path from 'path'
-import fs from 'fs'
+const path = require('path');
+const fs = require('fs');
 const url = require('url');
 
 // Make sure any symlinks in the project folder are resolved:
